@@ -266,13 +266,15 @@ static NSString *const kShareOptionUrl = @"url";
        || [type isEqualToString:SLServiceTypeSinaWeibo])) {
     return false;
   }
-  // wrapped in try-catch, because isAvailableForServiceType may crash if an invalid type is passed
-  @try {
-    return [SLComposeViewController isAvailableForServiceType:type];
-  }
-  @catch (NSException* exception) {
-    return false;
-  }
+
+  return true;
+  // // wrapped in try-catch, because isAvailableForServiceType may crash if an invalid type is passed
+  // @try {
+  //   return [SLComposeViewController isAvailableForServiceType:type];
+  // }
+  // @catch (NSException* exception) {
+  //   return false;
+  // }
 }
 
 - (void)shareViaInternal:(CDVInvokedUrlCommand*)command
